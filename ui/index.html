@@ -1,17 +1,327 @@
-<!doctype html>
-<html>
-    <head>
-        <link href="/ui/style.css" rel="stylesheet" />
-    </head>
-    <body>
-        <div class="center">
-            <img src="/ui/madi.png" class="img-medium"/>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Blog App</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/ui/style.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+</head>
+
+<body>
+    <!-- Modal -->
+<div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
         <br>
-        <div class="center text-big bold">
-            Hi! I am your webapp.
+        <div class="bs-example bs-example-tabs">
+            <ul id="myTab" class="nav nav-tabs">
+              <li class="active"><a href="#signin" data-toggle="tab">Sign In</a></li>
+              <li class=""><a href="#signup" data-toggle="tab">Register</a></li>
+              <li class=""><a href="#why" data-toggle="tab">Why?</a></li>
+            </ul>
         </div>
-        <script type="text/javascript" src="/ui/main.js">
-        </script>
-    </body>
+      <div class="modal-body">
+        <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade in" id="why">
+        <p>We need this information so that you can receive access to the site and its content. Rest assured your information will not be sold, traded, or given to anyone.</p>
+        <p></p><br></p>
+        </div>
+        <div class="tab-pane fade active in" id="signin">
+            <form class="form-horizontal">
+            <fieldset>
+            <!-- Sign In Form -->
+            <!-- Text input-->
+            <div class="control-group">
+              <label class="control-label" for="userid">User Name:</label>
+              <div class="controls">
+                <input required="" id="userid" name="userid" type="text" class="form-control" placeholder="Enter" class="input-medium" required="">
+              </div>
+            </div>
+
+            <!-- Password input-->
+            <div class="control-group">
+              <label class="control-label" for="passwordinput">Password:</label>
+              <div class="controls">
+                <input required="" id="passwordinput" name="passwordinput" class="form-control" type="password" placeholder="********" class="input-medium">
+              </div>
+            </div>
+
+            <!-- Multiple Checkboxes (inline) -->
+            <div class="control-group">
+              <label class="control-label" for="rememberme"></label>
+              <div class="controls">
+                <label class="checkbox inline" for="rememberme-0">
+                  <input type="checkbox" name="rememberme" id="rememberme-0" value="Remember me">
+                  Remember me
+                </label>
+              </div>
+            </div>
+
+            <!-- Button -->
+            <div class="control-group">
+              <label class="control-label" for="signin"></label>
+              <div class="controls">
+                <button id="signin" name="signin" class="btn btn-success">Sign In</button>
+              </div>
+            </div>
+            </fieldset>
+            </form>
+        </div>
+        <div class="tab-pane fade" id="signup">
+            <form class="form-horizontal">
+            <fieldset>
+            <!-- Sign Up Form -->
+            <!-- Text input-->
+            <div class="control-group">
+              <label class="control-label" for="Email">Email:</label>
+              <div class="controls">
+                <input id="Email" name="Email" class="form-control" type="text" placeholder="" class="input-large" required="">
+              </div>
+            </div>
+            
+            <!-- Text input-->
+            <div class="control-group">
+              <label class="control-label" for="userid">User Name:</label>
+              <div class="controls">
+                <input id="userid" name="userid" class="form-control" type="text" placeholder="" class="input-large" required="">
+              </div>
+            </div>
+            
+            <!-- Password input-->
+            <div class="control-group">
+              <label class="control-label" for="password">Password:</label>
+              <div class="controls">
+                <input id="password" name="password" class="form-control" type="password" placeholder="********" class="input-large" required="">
+                <em>1-8 Characters</em>
+              </div>
+            </div>
+            
+            <!-- Text input-->
+            <div class="control-group">
+              <label class="control-label" for="reenterpassword">Re-Enter Password:</label>
+              <div class="controls">
+                <input id="reenterpassword" class="form-control" name="reenterpassword" type="password" placeholder="********" class="input-large" required="">
+              </div>
+            </div>
+            
+            <!-- Multiple Radios (inline) -->
+            <br>
+            <div class="control-group">
+              <label class="control-label" for="humancheck">Humanity Check:</label>
+              <div class="controls">
+                <label class="radio inline" for="humancheck-0">
+                  <input type="radio" name="humancheck" id="humancheck-0" value="robot" checked="checked">I'm a Robot</label>
+                <label class="radio inline" for="humancheck-1">
+                  <input type="radio" name="humancheck" id="humancheck-1" value="human">I'm Human</label>
+              </div>
+            </div>
+            
+            <!-- Button -->
+            <div class="control-group">
+              <label class="control-label" for="confirmsignup"></label>
+              <div class="controls">
+                <button id="confirmsignup" name="confirmsignup" class="btn btn-success">Sign Up</button>
+              </div>
+            </div>
+            </fieldset>
+            </form>
+      </div>
+    </div>
+      </div>
+      <div class="modal-footer">
+      <center>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </center>
+      </div>
+    </div>
+  </div>
+</div>
+ <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://ankitnau25.imad.hasura-app.io">Home</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">Blog</a>
+                    </li>
+                  <li>
+                        <a data-toggle = "modal" data-target = "#myModal">Login/Register</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+  <hr>
+  <hr>
+<div class="container">
+
+        <div class="row">
+
+            <!-- Blog Entries Column -->
+            <div class="col-md-8">
+
+                <h1 class="page-header">
+                    Popular Post
+                    <small>This week</small>
+                </h1>
+
+                <!-- First Blog Post -->
+                <h2>
+                    <a href="#">Blog Post Title</a>
+                </h2>
+                <p class="lead">
+                    by <a href="index.php">Random</a>
+                </p>
+                <p><span class="glyphicon glyphicon-time"></span> Posted on Oct 28, 2016 at 10:00 PM</p>
+                <hr>
+                <img class="img-responsive" src="https://source.unsplash.com/category/technology/900x300" alt="">
+                <hr>
+                <p>Emerging Technology</p>
+                <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+
+                <hr>
+
+                <!-- Second Blog Post -->
+                <h2>
+                    <a href="#">Blog Post Title</a>
+                </h2>
+                <p class="lead">
+                    by <a href="index.php">Random</a>
+                </p>
+                <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:45 PM</p>
+                <hr>
+                <img class="img-responsive" src="https://source.unsplash.com/category/nature/900x300" alt="">
+                <hr>
+                <p>Nature At its best</p>
+                <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+
+                <hr>
+
+                <!-- Third Blog Post -->
+                <h2>
+                    <a href="#">Blog Post Title</a>
+                </h2>
+                <p class="lead">
+                    by <a href="index.php">Random</a>
+                </p>
+                <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:45 PM</p>
+                <hr>
+                <img class="img-responsive" src="https://source.unsplash.com/category/people/900x300" alt="">
+                <hr>
+                <p>Life is all about moving</p>
+                <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+
+                <hr>
+
+                <!-- Pager -->
+                <ul class="pager">
+                    <li class="previous">
+                        <a href="#">&larr; Older</a>
+                    </li>
+                    <li class="next">
+                        <a href="#">Newer &rarr;</a>
+                    </li>
+                </ul>
+
+            </div>
+
+            <!-- Blog Sidebar Widgets Column -->
+            <div class="col-md-4">
+
+                <!-- Blog Search Well -->
+                <div class="well">
+                    <h4>Wiki Search</h4>
+                    <div class="input-group">
+                        <input type="text" class="form-control">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">
+                                <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                        </span>
+                    </div>
+                    <!-- /.input-group -->
+                </div>
+
+                <!-- Blog Categories Well -->
+                <div class="well">
+                    <h4>Blog Categories</h4>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled">
+                                <li><a href="#">Nature</a>
+                                </li>
+                                <li><a href="#">Education</a>
+                                </li>
+                                <li><a href="#">Food</a>
+                                </li>
+                                <li><a href="#">People</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /.col-lg-6 -->
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled">
+                                <li><a href="#">Technology</a>
+                                </li>
+                                <li><a href="#">Sports</a>
+                                </li>
+                                <li><a href="#">Life</a>
+                                </li>
+                                <li><a href="#">TRAVEL</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /.col-lg-6 -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+
+                <!-- Side Widget Well -->
+                <div class="well">
+                    <h4>Random Quote</h4>
+                    <p id="qwe"></p>
+                    <hr>
+                    <button id="twto" type="button" class="btn btn-info  responsive-width "><i class="fa fa-twitter" aria-hidden="true"></i> Share</button>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+    </div>
+     <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="/ui/main.js">  </script>
+</body>
 </html>
